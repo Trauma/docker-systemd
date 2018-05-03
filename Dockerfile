@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM debian:stretch
 
 ENV container docker
 
@@ -13,6 +13,8 @@ RUN find /etc/systemd/system \
 
 RUN apt-get update && \
     apt-get install -y \
+    systemd \
+    systemd-sysv \
     dbus && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
